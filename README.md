@@ -5,6 +5,7 @@
 1. 该项目基于[P3TERX/Actions-OpenWrt](https://github.com/P3TERX/Actions-OpenWrt)修改，仅保留actions部分。
 2. 集成了大量第三方脚本，该项目脚本仅保留我所需要的脚本。
 3. 如需查看固件内所继承的脚本，可复制.config自行查看。
+4. 将该仓库导入自己github下，点击 [这里](https://github.com/verages/R2S_lede/generate)。
 
 ## 本地导出或查看.config文件(以下操作在能科学上网的桌面版UBuntu20.04进行)并编译
 
