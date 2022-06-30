@@ -3,7 +3,7 @@
  * @LastEditors: wayne
  * @email: linzhihui@szarobots.com
  * @Date: 2022-06-20 13:58:02
- * @LastEditTime: 2022-06-30 10:20:30
+ * @LastEditTime: 2022-06-30 10:29:59
  * @Description: 
 -->
 # Actions-OpenWrt
@@ -20,26 +20,19 @@
 ```bash
 sudo apt-get update
 sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
-cd ~/
-mkdir openwrt
-cd openwrt
-git clone https://github.com/coolsnowwolf/lede
-git clone https://github.com/verages/R2S_lede
+mkdir ~/openwrt && cd ~/openwrt
+git clone https://github.com/coolsnowwolf/lede && git clone https://github.com/verages/R2S_lede
 cd lede
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
-./scripts/feeds update -a
-./scripts/feeds install -a
+./scripts/feeds update -a && ./scripts/feeds install -a
 #复制本仓库中的.config文件到lede源码中查看修改
 cp ../R2S_lede/config/R2S.config ./.config
-
 make menuconfig
 #编译 本地编译
 make -j8 download V=s
 make -j1 V=s
-##action 编译
-gedit .config or gedit R2S.config
-#全选复制内容到本仓库的.config内进行替换
+
 ```
 
 ## action操作
