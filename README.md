@@ -3,7 +3,7 @@
  * @LastEditors: wayne
  * @email: linzhihui@szarobots.com
  * @Date: 2022-06-20 13:58:02
- * @LastEditTime: 2022-06-30 10:11:53
+ * @LastEditTime: 2022-06-30 10:20:30
  * @Description: 
 -->
 # Actions-OpenWrt
@@ -24,15 +24,15 @@ cd ~/
 mkdir openwrt
 cd openwrt
 git clone https://github.com/coolsnowwolf/lede
+git clone https://github.com/verages/R2S_lede
 cd lede
 sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf.default
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 ./scripts/feeds update -a
 ./scripts/feeds install -a
-#或复制本仓库中的.config文件到lede源码中查看修改
-cd ../
-git clone https://github.com/verages/R2S_lede
-cp ./R2S_lede/R2S.config ./lede/.config
+#复制本仓库中的.config文件到lede源码中查看修改
+cp ../R2S_lede/config/R2S.config ./.config
+
 make menuconfig
 #编译 本地编译
 make -j8 download V=s
