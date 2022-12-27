@@ -3,7 +3,7 @@
  * @LastEditors: wayne
  * @email: linzhihui@szarobots.com
  * @Date: 2022-06-20 13:58:02
- * @LastEditTime: 2022-06-30 16:46:29
+ * @LastEditTime: 2022-12-27 14:16:13
  * @Description: 
 -->
 # Actions-OpenWrt
@@ -18,8 +18,14 @@
 ## 本地导出或查看.config文件(以下操作在能科学上网的桌面版UBuntu20.04进行)并编译
 
 ```bash
-sudo apt-get update
-sudo apt-get -y install build-essential asciidoc binutils bzip2 gawk gettext git libncurses5-dev libz-dev patch python3 python2.7 unzip zlib1g-dev lib32gcc1 libc6-dev-i386 subversion flex uglifyjs git-core gcc-multilib p7zip p7zip-full msmtp libssl-dev texinfo libglib2.0-dev xmlto qemu-utils upx libelf-dev autoconf automake libtool autopoint device-tree-compiler g++-multilib antlr3 gperf wget curl swig rsync
+sudo apt update -y
+sudo apt full-upgrade -y
+sudo apt install -y ack antlr3 aria2 asciidoc autoconf automake autopoint binutils bison build-essential \
+bzip2 ccache cmake cpio curl device-tree-compiler fastjar flex gawk gettext gcc-multilib g++-multilib \
+git gperf haveged help2man intltool libc6-dev-i386 libelf-dev libglib2.0-dev libgmp3-dev libltdl-dev \
+libmpc-dev libmpfr-dev libncurses5-dev libncursesw5-dev libreadline-dev libssl-dev libtool lrzsz \
+mkisofs msmtp nano ninja-build p7zip p7zip-full patch pkgconf python2.7 python3 python3-pip libpython3-dev qemu-utils \
+rsync scons squashfs-tools subversion swig texinfo uglifyjs upx-ucl unzip vim wget xmlto xxd zlib1g-dev
 mkdir ~/openwrt && cd ~/openwrt
 git clone https://github.com/coolsnowwolf/lede && git clone https://github.com/verages/R2S_lede
 cd lede
@@ -27,7 +33,7 @@ sed -i '$a src-git kenzo https://github.com/kenzok8/openwrt-packages' feeds.conf
 sed -i '$a src-git small https://github.com/kenzok8/small' feeds.conf.default
 ./scripts/feeds update -a && ./scripts/feeds install -a
 #复制本仓库中的.config文件到lede源码中查看修改
-cp ../R2S_lede/R2S.config ./.config
+cp ../R2S_lede/r2s.config ./.config
 make menuconfig
 #编译 本地编译
 make -j8 download V=s
