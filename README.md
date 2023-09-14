@@ -15,7 +15,10 @@
 3. 如需查看固件内所继承的脚本，可复制.config自行查看。
 4. 将该仓库导入自己github下，点击 [这里](https://github.com/verages/R2S_lede/generate)。
 
-## 本地导出或查看.config文件(以下操作在能科学上网的桌面版UBuntu20.04进行)并编译
+## 本地编译设置环境方法
+可通过clash同时通过export声明环境变量完成科学上网设置
+
+## 本地导出或查看.config文件(以下操作在能科学上网UBuntu20.04进行)并编译
 
 ```bash
 sudo apt update -y
